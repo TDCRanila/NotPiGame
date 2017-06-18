@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\PiFramework">
+      <UniqueIdentifier>{d46bd46c-82cc-4e80-b54e-4de4947c7732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PiFramework">
+      <UniqueIdentifier>{a2280e48-19c2-4e66-a8fa-b245d597b368}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\AmmoPack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Bullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\EnemyManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\FinishBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Gun.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\HealthPack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Level.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\LoaderBot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\MainGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Pickup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\TurretBot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Utilities.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\tiny_obj_loader.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Texture.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\stb_image_write.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\stb_image.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\StateMachine.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\ShaderClass.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\ResourceManager.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\OBJModel.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\OBJManager.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\MyFiles.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\ModelMatrix.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\MD2Model.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\MD2Manager.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Input.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GUI.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Grid.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Graphics.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Geometry.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\CubeMap.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Camera.h">
+      <Filter>Header Files\PiFramework</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\AmmoPack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Bullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EnemyManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FinishBlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Gun.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\HealthPack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\HelloCubes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Level.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LoaderBot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MainGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Pickup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TurretBot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\tiny_obj_loader.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Texture.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StateMachine.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ShaderClass.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ResourceManager.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\OBJModel.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\OBJManager.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MyFiles.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ModelMatrix.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MD2Model.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MD2Manager.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Input.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GUI.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Grid.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Geometry.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CubeMap.cpp">
+      <Filter>Source Files\PiFramework</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
