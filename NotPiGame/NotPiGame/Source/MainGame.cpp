@@ -1,9 +1,10 @@
 #include "../Headers/MainGame.h"
 
-#include "../Headers/ModelMatrix.h"
-
 #include "../glm/include/common.hpp"
 #include "../glm/include/gtc/matrix_transform.hpp"
+
+#include "../Headers/Level.h"
+#include "../Headers/ResourceManager.h"
 
 #include <algorithm>
 
@@ -21,11 +22,7 @@ MainGame::MainGame(Window* window, int screenWidth, int screenHeight) {
 	// Creating the camera of the game
 	m_mainCamera = new Camera();
 	m_mainCamera->storeInput(input);
-	
-	// Store the screen sizes
-	this->m_screenWidth     = screenWidth;
-	this->m_screenHeight    = screenHeight;
-	
+		
 	// Now create all the states and push the first state
 	gameController->createNewState(InitMenuState      , "Init Menu State"     , &InitMenuThunk);
 	gameController->createNewState(UpdateMenuState    , "Update Menu State"   , &UpdateMenuThunk);
@@ -64,10 +61,7 @@ bool MainGame::getGameExit()          { return this->m_exitGame; }
 
 void MainGame::UpdateMainGame(float deltaTime) {
 	// First store the deltaTime inside of the MainGame object
-	
-	// Screenshot
-	//if (input->getKey(KEY_F10)) { screenshotter.Screenshot(m_screenWidth, m_screenHeight, 0, 0);}
-	
+		
 	// FrameStep Controller
 	int timeStepCount = 0;
 	while (deltaTime > 0.0f && timeStepCount < MAX_PHYSICS_STEPS) {

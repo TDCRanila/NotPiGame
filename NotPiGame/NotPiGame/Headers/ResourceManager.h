@@ -4,15 +4,12 @@
 
 //#include "../Headers/MD2Manager.h"
 //#include "../Headers/OBJManager.h"
-
 #include "../Headers/CubeMap.h"
-#include "../Headers/MD2Model.h"
-#include "../Headers/OBJModel.h"
 
 #include <string>
 #include <vector>
 
-//FW Declaration
+class OBJModel; class MD2Model; class MD2Manager; class OBJManager; //FW Declaration
 
 /********************************************************************/
 /*This is a class that stores a pointer and string of the filePaths */

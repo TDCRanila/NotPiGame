@@ -1,16 +1,15 @@
 #pragma once
-	
-#include "../Headers/Graphics.h"
-#include "../Headers/MyFiles.h"
-#include "../Headers/Input.h"
-#include "../Headers/Camera.h"
-#include "../Headers/ResourceManager.h"
-#include "../Headers/StateMachine.h"
-#include "../Headers/GUI.h"
 
-#include "../Headers/Level.h"
+#include "../Headers/Graphics.h"
+#include "../Headers/Camera.h"
+#include "../Headers/StateMachine.h"
+
+//#include "../Headers/ResourceManager.h"
+//#include "../Headers/GUI.h"
 
 #include <vector>
+
+class Level; class GUI; class ModelMatrix; class ResourceManager;
 
 class MainGame {
 public:
@@ -85,12 +84,7 @@ private:
 	float m_aspect		= (16.0f / 9.0f);
     float m_nearZ			= 0.25f;
     float m_farZ			= 300.f;
-		
-	// File Importer / Screenshot maker
-	MyFiles screenshotter;
-	int		m_screenWidth;
-	int		m_screenHeight;
-			
+					
 	// Draw Objects Vector Pointers - All The Models
 	std::vector<GUI*>* m_GUISystems							= nullptr;
 	std::vector<ModelMatrix*>* m_gameObjectsModels			= nullptr;

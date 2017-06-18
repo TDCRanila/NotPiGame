@@ -1,7 +1,5 @@
 #include "../glad/include/glad/glad.h"
-#include "../GLFW/include/GLFW/glfw3.h"
 
-#include "../Headers/Graphics.h"
 #include "../Headers/MainGame.h"
 
 #include <chrono>

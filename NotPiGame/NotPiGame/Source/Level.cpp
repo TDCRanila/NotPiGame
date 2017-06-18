@@ -6,8 +6,8 @@
 
 ////#include "../Headers/ModelMatrix.h"
 ////#include "../Headers/ShaderClass.h"
-////#include "../Headers/MD2Model.h"
-////#include "../Headers/OBJModel.h"
+#include "../Headers/MD2Model.h"
+#include "../Headers/OBJModel.h"
 
 Level::Level(std::vector<ModelMatrix*>* gameModels, std::vector<ModelMatrix*>* terrainModels, 
 			 std::vector<ModelMatrix*>* backGroundModels, std::vector<GUI*>* guiSystems,
