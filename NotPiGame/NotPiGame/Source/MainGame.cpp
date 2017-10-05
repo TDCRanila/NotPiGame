@@ -6,13 +6,14 @@
 #include "../Headers/Level.h"
 #include "../Headers/ResourceManager.h"
 
+#include "../Headers/Input.h"
+
 #include <algorithm>
 
-MainGame::MainGame(Window* window, int screenWidth, int screenHeight) {
-    windowHandle                = window;
+MainGame::MainGame(Window* window, Input* input, int screenWidth, int screenHeight) {
 	gameController              = new StateMachine();
 	resourceManager				= new ResourceManager();
-	input                       = new Input();
+	this->input					= input;
 	
 	m_GUISystems				= new std::vector<GUI*>;
 	m_terrainObjectsModels		= new std::vector<ModelMatrix*>;
@@ -37,18 +38,16 @@ MainGame::MainGame(Window* window, int screenWidth, int screenHeight) {
 	
 	// Set the gameController to initialise the game or the menu
 	gameController->pushState(InitLevelState);
+	//gameController->pushState(InitMenuState);
 }
 MainGame::~MainGame() {	
 	// Now the core systems
-    windowHandle = nullptr;
 	delete resourceManager;
 	resourceManager = nullptr;
 	delete gameController;
 	gameController    = nullptr;
 	delete m_mainCamera;
-	m_mainCamera = nullptr;
-	delete input;
-	input = nullptr;	
+	m_mainCamera = nullptr;	
 		
 	// Now delete the draw vectors - objects within should already have been destroyed - only the pointers are left
 	delete m_terrainObjectsModels;
@@ -64,7 +63,7 @@ void MainGame::UpdateMainGame(float deltaTime) {
 		
 	// FrameStep Controller
 	int timeStepCount = 0;
-	while (deltaTime > 0.0f && timeStepCount < MAX_PHYSICS_STEPS) {
+	while (deltaTime >= 0.0f && timeStepCount < MAX_PHYSICS_STEPS) {
 		FRAME_STEP_FPS = std::min(deltaTime, MAX_DELTA_TIME);
 		
 		// Set the deltaTime
@@ -109,8 +108,15 @@ void MainGame::Draw() {
 }
 
 // Menu Functions
-void MainGame::InitMenu() {}
-void MainGame::UpdateMenu() {}
+void MainGame::InitMenu() {
+	gameController->pushState(UpdateMenuState);
+}
+void MainGame::UpdateMenu() {
+	//If this button is pressed, exit the level
+	if (input->GetKey(KEY_ESCAPE)) { 
+		this->m_exitGame = true; return; 
+	}
+}
 
 // Pause Menu Functions
 void MainGame::InitPauseMenu()    {
@@ -119,10 +125,10 @@ void MainGame::InitPauseMenu()    {
 }
 void MainGame::UpdatePauseMenu() {
 	// Check when to exit the pause menu
-	//if (input->getKey(KEY_LEFTBRACE)) {
-	//	currentLevel->setPauseBool(false);
-	//	gameController->popState(); // No Longer pause the level
-	//}
+	if (input->GetKey(GLFW_KEY_LEFT_BRACKET)) {
+		currentLevel->setPauseBool(false);
+		gameController->popState(); // No Longer pause the level
+	}
 }
 
 // Main Control over the level

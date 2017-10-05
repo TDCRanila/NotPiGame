@@ -85,27 +85,27 @@ public:
 
 	void cameraUpdate(float deltaTime) {
 //		// Camera update - Keyboard
-//		if (this->m_input->getKey(KEY_D)) {
+//		if (this->m_input->GetKey(KEY_D)) {
 //			this->CameraMovementEnum = CAMERA_RIGHT;
 //			this->ProcessKeyboard(deltaTime);
 //		}
-//		if (this->m_input->getKey(KEY_A)) {
+//		if (this->m_input->GetKey(KEY_A)) {
 //			this->CameraMovementEnum = CAMERA_LEFT;
 //			this->ProcessKeyboard(deltaTime);
 //		}
-//		if (this->m_input->getKey(KEY_S)) {
+//		if (this->m_input->GetKey(KEY_S)) {
 //			this->CameraMovementEnum = CAMERA_BACKWARD;
 //			this->ProcessKeyboard(deltaTime);
 //		}
-//		if (this->m_input->getKey(KEY_W)) {
+//		if (this->m_input->GetKey(KEY_W)) {
 //			this->CameraMovementEnum = CAMERA_FORWARD;
 //			this->ProcessKeyboard(deltaTime);
 //		}
-//		if (this->m_input->getKey(KEY_LEFTSHIFT)) {
+//		if (this->m_input->GetKey(KEY_LEFTSHIFT)) {
 //			this->CameraMovementEnum = CAMERA_UP;
 //			this->ProcessKeyboard(deltaTime);
 //		}
-//		if (this->m_input->getKey(KEY_LEFTCTRL)) {
+//		if (this->m_input->GetKey(KEY_LEFTCTRL)) {
 //			this->CameraMovementEnum = CAMERA_DOWN;
 //			this->ProcessKeyboard(deltaTime);
 //		}

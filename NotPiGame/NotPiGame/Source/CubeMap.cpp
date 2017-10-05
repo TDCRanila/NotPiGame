@@ -3,6 +3,8 @@
 #include "../Headers/MyFiles.h"
 #include "../Headers/Utilities.h"
 
+#include "../Headers/ShaderClass.h"
+
 #include "../glm/include/gtc/type_ptr.hpp"
 
 GLfloat cubeVertices[] { // Vert.XYZ

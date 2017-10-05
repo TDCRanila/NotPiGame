@@ -1,19 +1,15 @@
 #pragma once
 
-#include "../Headers/Graphics.h"
 #include "../Headers/Camera.h"
 #include "../Headers/StateMachine.h"
 
-//#include "../Headers/ResourceManager.h"
-//#include "../Headers/GUI.h"
-
 #include <vector>
 
-class Level; class GUI; class ModelMatrix; class ResourceManager;
+class Level; class GUI; class ModelMatrix; class ResourceManager; class Window;
 
 class MainGame {
 public:
-	MainGame(Window* window, int screenWidth, int screenHeight);
+	MainGame(Window* window, Input* input, int screenWidth, int screenHeight);
 	~MainGame();
 		
 	void UpdateMainGame(float deltaTime);
@@ -67,7 +63,6 @@ private:
 	float FRAME_STEP_FPS	= 0.0f;
 	
 	// Core components for our Game
-    Window*             windowHandle    = nullptr;
 	StateMachine*		gameController	= nullptr;
 	ResourceManager*	resourceManager	= nullptr;	
 	Input*				input			= nullptr;

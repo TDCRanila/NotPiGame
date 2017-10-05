@@ -2,8 +2,6 @@
 
 #include "../Headers/ModelMatrix.h"
 
-#include "../Headers/ShaderClass.h"
-
 #include <vector>
 
 class CubeMap : public ModelMatrix {
@@ -13,10 +11,10 @@ public:
 	
 	bool Update(float deltaTime);
 	bool Draw(glm::mat4 cameraView, glm::mat4 cameraProjection);
-	GLuint getTextureID();
+	unsigned int getTextureID();
 	
 private:
-	GLuint m_textureID;
-	GLuint m_vbo;
+	unsigned int m_textureID;
+	unsigned int m_vbo;
 	std::vector<const char*> m_cubeMapFaces; // This vector stores the filepaths to the different sides
 };

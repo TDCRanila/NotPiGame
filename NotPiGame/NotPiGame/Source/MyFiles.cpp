@@ -5,7 +5,7 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "../Headers/stb_image_write.h"
 
-#include "../glad/include/glad/glad.h"
+//#include "../glad/include/glad/glad.h"
 
 #include <iostream>
 #include <fstream>
@@ -53,20 +53,20 @@ const char* MyFiles::NewLoadText(char const *filename) {
 	return file_contents.c_str();
 }
 
-void MyFiles::Screenshot(GLint endX, GLint endY, GLint startX, GLint startY) {
-	GLubyte *pixels = new GLubyte[3 * endX * endY];
-
-	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-	glReadPixels(startX, startY, endX, endY, GL_RGB, GL_UNSIGNED_BYTE, pixels);
-	
-	std::string imageName = "PiGame - ScreenShot - #"; // Standard file name
-	imageName.append(std::to_string(screenShotCount)); // This is to counter act overwriting the screenshot
-	imageName.append(".png"); // Make sure the extension is a png.
-	printf("Taking ScreenShot - FileName: %s", imageName.c_str());
-	
-	screenShotCount++; // Add 1 to count so that the filename is never the same in the same runtime
-	
-	stbi_write_png(imageName.c_str(), endX, endY, 3, pixels, endX * 3);
-
-	delete[] pixels;
-}
+//void MyFiles::Screenshot(GLint endX, GLint endY, GLint startX, GLint startY) {
+//	unsigned char *pixels = new GLubyte[3 * endX * endY];
+//
+//	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+//	glReadPixels(startX, startY, endX, endY, GL_RGB, GL_UNSIGNED_BYTE, pixels);
+//	
+//	std::string imageName = "PiGame - ScreenShot - #"; // Standard file name
+//	imageName.append(std::to_string(screenShotCount)); // This is to counter act overwriting the screenshot
+//	imageName.append(".png"); // Make sure the extension is a png.
+//	printf("Taking ScreenShot - FileName: %s", imageName.c_str());
+//	
+//	screenShotCount++; // Add 1 to count so that the filename is never the same in the same runtime
+//	
+//	stbi_write_png(imageName.c_str(), endX, endY, 3, pixels, endX * 3);
+//
+//	delete[] pixels;
+//}

@@ -1,5 +1,7 @@
 #include "../Headers/Graphics.h"
 
+#include "../Headers/Input.h"
+
 #include <iostream>
 
 bool m_keys[1024];
@@ -9,10 +11,13 @@ Window::Window(std::string windowName, int windowWidth, int windowHeight) :
     windowWidth(windowWidth),
     windowHeight(windowHeight)
 {
-    // Empty
+	InputClass = new Input();
 }
 
 Window::~Window() {
+	delete InputClass;
+	InputClass = nullptr;
+
     std::cout << "Destroying OpenGL Window - " << windowName << std::endl;
     glfwDestroyWindow(this->GLFWWindow);
 }
@@ -47,24 +52,27 @@ bool Window::CreateGLFWWindow(bool makeCurrent, bool enableVSync) {
         glfwSwapInterval(1);
     }
 
+	//
+	glfwSetWindowUserPointer(this->GLFWWindow, InputClass);
+
     std::cout << "Succesfully created a GLFW Window" << std::endl << std::endl;
 
     return true;
 }
 
 void Window::PrintContextInfo(bool displayRenderer, bool displayOGLversion, bool displayOGLextensions) {
-    const GLubyte* renderer = glGetString(GL_RENDERER);
-    const GLubyte* vendor = glGetString(GL_VENDOR);
-    const GLubyte* version = glGetString(GL_VERSION);
-    const GLubyte* extensions = glGetString(GL_EXTENSIONS);
-    if (displayRenderer) { printf("Renderer: %s - Vendor: %s\n", renderer, vendor); }
-    if (displayOGLversion) { printf("OpenGL Version: %s\n\n", version); }
-    if (displayOGLextensions) { printf("Extensions: %s\n", extensions); }
+    //const GLubyte* renderer = glGetString(GL_RENDERER);
+    //const GLubyte* vendor = glGetString(GL_VENDOR);
+    //const GLubyte* version = glGetString(GL_VERSION);
+    //const GLubyte* extensions = glGetString(GL_EXTENSIONS);
+    //if (displayRenderer) { printf("Renderer: %s - Vendor: %s\n", renderer, vendor); }
+    //if (displayOGLversion) { printf("OpenGL Version: %s\n\n", version); }
+    //if (displayOGLextensions) { printf("Extensions: %s\n", extensions); }
 }
 
 void Window::SetWindowFlags() {
-    glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_LEQUAL);
+    //glEnable(GL_DEPTH_TEST);
+    //glDepthFunc(GL_LEQUAL);
 }
 
 void WindowCallBacks::error_callback(int error, const char* description) {
@@ -77,6 +85,10 @@ void WindowCallBacks::key_callback(GLFWwindow* window, int key, int scancode, in
         if (action == GLFW_PRESS) { m_keys[key] = true; }
         else if (action == GLFW_RELEASE) { m_keys[key] = false; }
     }
+
+	Input* inputClass = reinterpret_cast<Input*>(glfwGetWindowUserPointer(window));
+	inputClass->HandleKeys(m_keys, scancode, action, mods);
+
 }
 
 void WindowCallBacks::mouse_callback(GLFWwindow* window, double xpos, double ypos) {

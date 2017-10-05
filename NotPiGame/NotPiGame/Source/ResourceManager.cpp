@@ -1,8 +1,11 @@
 #include "../Headers/ResourceManager.h"
 
 #include "../Headers/Texture.h"
+#include "../Headers/ModelMatrix.h"
 #include "../Headers/MD2Model.h"
 #include "../Headers/OBJModel.h"
+#include "../Headers/CubeMap.h"
+#include "../Headers/ShaderClass.h"
 
 ResourceManager::ResourceManager() {
 	md2Manager		= new MD2Manager();

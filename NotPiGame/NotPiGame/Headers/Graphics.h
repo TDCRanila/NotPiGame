@@ -11,6 +11,8 @@ struct WindowCallBacks {
     static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 };
 
+class Input;
+
 class Window {
 public:
     Window(std::string windowName, int windowWidth, int windowHeight);
@@ -24,6 +26,8 @@ public:
     int windowWidth;
     int windowHeight;
     std::string windowName;
+
+	Input* InputClass;
 
 private:
     WindowCallBacks callbacks;

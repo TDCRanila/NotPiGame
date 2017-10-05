@@ -8,6 +8,7 @@
 ////#include "../Headers/ShaderClass.h"
 #include "../Headers/MD2Model.h"
 #include "../Headers/OBJModel.h"
+#include "../Headers/CubeMap.h"
 
 Level::Level(std::vector<ModelMatrix*>* gameModels, std::vector<ModelMatrix*>* terrainModels, 
 			 std::vector<ModelMatrix*>* backGroundModels, std::vector<GUI*>* guiSystems,
@@ -300,96 +301,96 @@ void Level::LoadResources() {
 	//* The order of loading matters when storing in the pointers/IDs in the resource manager  *//
 	
 #pragma region Shaders
-	std::string mainShaderVert = "../Resources/Shaders/mShader.vert";
-	std::string mainShaderFrag = "../Resources/Shaders/mShader.frag";
+	std::string mainShaderVert = "Resources/Shaders/mShader.vert";
+	std::string mainShaderFrag = "Resources/Shaders/mShader.frag";
 	this->mainShader	= this->resourceManager->createShader(mainShaderVert, mainShaderFrag);		// #0
 	
-	std::string md2ShaderVert = "../Resources/Shaders/MD2Shader.vert";
-	std::string md2ShaderFrag = "../Resources/Shaders/MD2Shader.frag";
+	std::string md2ShaderVert = "Resources/Shaders/MD2Shader.vert";
+	std::string md2ShaderFrag = "Resources/Shaders/MD2Shader.frag";
 	this->md2Shader		= this->resourceManager->createShader(md2ShaderVert, md2ShaderFrag);		// #1
 	
-	std::string skyboxShaderVert = "../Resources/Shaders/skyboxShader.vert";
-	std::string skyboxShaderFrag = "../Resources/Shaders/skyboxShader.frag";
+	std::string skyboxShaderVert = "Resources/Shaders/skyboxShader.vert";
+	std::string skyboxShaderFrag = "Resources/Shaders/skyboxShader.frag";
 	this->skyboxShader	= this->resourceManager->createShader(skyboxShaderVert, skyboxShaderFrag);	// #2
 	
-	std::string GUIshaderVert = "../Resources/Shaders/GUIShader.vert";
-	std::string GUIshaderFrag = "../Resources/Shaders/GUIShader.frag";
+	std::string GUIshaderVert = "Resources/Shaders/GUIShader.vert";
+	std::string GUIshaderFrag = "Resources/Shaders/GUIShader.frag";
 	this->guiShader		= this->resourceManager->createShader(GUIshaderVert, GUIshaderFrag);	// #3
 	
 #pragma endregion Here we load in all the shaders that we need in the game
 
 #pragma region OBJ Models
 	/* Model - #0 - Terrain OBJ */ {
-		std::string modelFile	= "../Resources/Models/TerrainModel/level00.obj";
+		std::string modelFile	= "Resources/Models/TerrainModel/level00.obj";
 		this->resourceManager->loadAndStoreOBJ(modelFile, this->mainShader);
 	}
 	/* Model - #1 - Repeater Plasma Prism OBJ */ {
-		std::string modelFile	= "../Resources/Models/Weapons/Plasma/plasma.obj";
+		std::string modelFile	= "Resources/Models/Weapons/Plasma/plasma.obj";
 		this->resourceManager->loadAndStoreOBJ(modelFile, this->mainShader);
 	}
 	/* Model - #2 - Turret Bot Plasma Prism OBJ */ {
-		std::string modelFile	= "../Resources/Models/Characters/TurretDroid/plasma.obj";
+		std::string modelFile	= "Resources/Models/Characters/TurretDroid/plasma.obj";
 		this->resourceManager->loadAndStoreOBJ(modelFile, this->mainShader);
 	}
 	
 	/* Model - #3 - HealthPack OBJ */ {
-		std::string modelFile	= "../Resources/Models/Pickups/Healthpack/healthbox.obj";
+		std::string modelFile	= "Resources/Models/Pickups/Healthpack/healthbox.obj";
 		this->resourceManager->loadAndStoreOBJ(modelFile, this->mainShader);
 }
 	/* Model - #4 - Ammo Pack  OBJ */ {
-		std::string modelFile	= "../Resources/Models/Pickups/Ammopack/ammobox.obj";
+		std::string modelFile	= "Resources/Models/Pickups/Ammopack/ammobox.obj";
 		this->resourceManager->loadAndStoreOBJ(modelFile, this->mainShader);
 }
 	/* Model - #5 - Finish Block OBJ */ {
-		std::string modelFile	= "../Resources/Models/Pickups/Finishbox/finishbox.obj";
+		std::string modelFile	= "Resources/Models/Pickups/Finishbox/finishbox.obj";
 		this->resourceManager->loadAndStoreOBJ(modelFile, this->mainShader);
 }
 #pragma endregion Here we load in all the OBJmodels that we need in the game
 	
 #pragma region MD2 Models
 		/* Model - #0 - Player Pistol Model */ {
-		std::string modelFile		= "../Resources/Models/Weapons/Pistol/view.md2";
-		std::string textureFile		= "../Resources/Models/Weapons/Pistol/view.png";
+		std::string modelFile		= "Resources/Models/Weapons/Pistol/view.md2";
+		std::string textureFile		= "Resources/Models/Weapons/Pistol/view.png";
 		this->resourceManager->loadAndStoreMD2(modelFile, textureFile, this->md2Shader);
 	}
 	
 		/* Model - #1 - Player Pistol Flash Model */ {
-		std::string modelFile		= "../Resources/Models/Weapons/Pistol/flash.md2";
-		std::string textureFile		= "../Resources/Models/Weapons/Pistol/flash.png";
+		std::string modelFile		= "Resources/Models/Weapons/Pistol/flash.md2";
+		std::string textureFile		= "Resources/Models/Weapons/Pistol/flash.png";
 		this->resourceManager->loadAndStoreMD2(modelFile, textureFile, this->md2Shader);
 	}
 	
 		/* Model - #2 - Player Shotgun Model */ {
-		std::string modelFile		= "../Resources/Models/Weapons/Shotgun/view.md2";
-		std::string textureFile		= "../Resources/Models/Weapons/Shotgun/view.png";
+		std::string modelFile		= "Resources/Models/Weapons/Shotgun/view.md2";
+		std::string textureFile		= "Resources/Models/Weapons/Shotgun/view.png";
 		this->resourceManager->loadAndStoreMD2(modelFile, textureFile, this->md2Shader);
 	}
 	
 		/* Model - #3 - Player Shotgun Flash Model */ {
-		std::string modelFile		= "../Resources/Models/Weapons/Shotgun/flash.md2";
-		std::string textureFile		= "../Resources/Models/Weapons/Shotgun/flash2.png";
+		std::string modelFile		= "Resources/Models/Weapons/Shotgun/flash.md2";
+		std::string textureFile		= "Resources/Models/Weapons/Shotgun/flash2.png";
 		this->resourceManager->loadAndStoreMD2(modelFile, textureFile, this->md2Shader);
 	}
 	
 		/* Model - #4 - Player Plasma Rifle Model */ {
-		std::string modelFile		= "../Resources/Models/Weapons/Plasma/view.md2";
-		std::string textureFile		= "../Resources/Models/Weapons/Plasma/view.png";
+		std::string modelFile		= "Resources/Models/Weapons/Plasma/view.md2";
+		std::string textureFile		= "Resources/Models/Weapons/Plasma/view.png";
 		this->resourceManager->loadAndStoreMD2(modelFile, textureFile, this->md2Shader);
 	}
 	
 		/* Model - #5 - Player Plasma Rifle Flash Model */ {
-		std::string modelFile		= "../Resources/Models/Weapons/Plasma/flash.md2";
-		std::string textureFile		= "../Resources/Models/Weapons/Plasma/flash.png";
+		std::string modelFile		= "Resources/Models/Weapons/Plasma/flash.md2";
+		std::string textureFile		= "Resources/Models/Weapons/Plasma/flash.png";
 		this->resourceManager->loadAndStoreMD2(modelFile, textureFile, this->md2Shader);
 	}
 		/* Model - #6 - LoaderBot Model */ {
-		std::string modelFile		= "../Resources/Models/Characters/BattleDroid/BattleDroid.md2";
-		std::string textureFile		= "../Resources/Models/Characters/BattleDroid/BattleDroid.png";
+		std::string modelFile		= "Resources/Models/Characters/BattleDroid/BattleDroid.md2";
+		std::string textureFile		= "Resources/Models/Characters/BattleDroid/BattleDroid.png";
 		this->resourceManager->loadAndStoreMD2(modelFile, textureFile, this->md2Shader);
 	}
 		/* Model - #7 - TurretBot Model */ {
-		std::string modelFile		= "../Resources/Models/Characters/TurretDroid/TurretDroid.md2";
-		std::string textureFile		= "../Resources/Models/Characters/TurretDroid/TurretDroid.png";
+		std::string modelFile		= "Resources/Models/Characters/TurretDroid/TurretDroid.md2";
+		std::string textureFile		= "Resources/Models/Characters/TurretDroid/TurretDroid.png";
 		this->resourceManager->loadAndStoreMD2(modelFile, textureFile, this->md2Shader);
 	}
 #pragma endregion
@@ -400,12 +401,12 @@ void Level::LoadResources() {
 
 #pragma region CubeMaps // Skybox needs to be last in the render call
 	/* CubeMap - #0 - Space Skybox */ {
-		const char* right	= "../Resources/Textures/Skybox/redSpace_right.png";
-		const char* left	= "../Resources/Textures/Skybox/redSpace_left.png";
-		const char* top		= "../Resources/Textures/Skybox/redSpace_top.png";
-		const char* bottom	= "../Resources/Textures/Skybox/redSpace_bottom.png";
-		const char* front	= "../Resources/Textures/Skybox/redSpace_back.png";
-		const char* back	= "../Resources/Textures/Skybox/redSpace_front.png";
+		const char* right	= "Resources/Textures/Skybox/redSpace_right.png";
+		const char* left	= "Resources/Textures/Skybox/redSpace_left.png";
+		const char* top		= "Resources/Textures/Skybox/redSpace_top.png";
+		const char* bottom	= "Resources/Textures/Skybox/redSpace_bottom.png";
+		const char* front	= "Resources/Textures/Skybox/redSpace_back.png";
+		const char* back	= "Resources/Textures/Skybox/redSpace_front.png";
 		CubeMap* skybox = this->resourceManager->createCubeMap(right, left, top, bottom, back, front, this->skyboxShader);
 	} // Give it its on scope - so it doesn't intervene with other variables
 #pragma endregion Here we load in the cubemaps that we need in the game

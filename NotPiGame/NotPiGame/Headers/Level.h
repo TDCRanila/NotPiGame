@@ -52,7 +52,7 @@ protected:
 	
 	// GUI Stuff
 	GUI*		gameGUI				= nullptr;
-	std::string crosshairFile		= "../Resources/Textures/GUI/crosshair.png";
+	std::string crosshairFile		= "Resources/Textures/GUI/crosshair.png";
 	
 	// *** Pointers that we need in order to make the level functonal ***//
 	Camera*				cameraPointer	= nullptr;

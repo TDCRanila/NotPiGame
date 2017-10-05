@@ -1,5 +1,7 @@
 #include "../Headers/Texture.h"
 
+#include "../glad/include/glad/glad.h"
+
 #include "../Headers/MyFiles.h"
 #include "../Headers/Utilities.h"
 

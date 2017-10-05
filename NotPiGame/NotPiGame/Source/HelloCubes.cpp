@@ -2,6 +2,8 @@
 
 #include "../Headers/MainGame.h"
 
+#include "../Headers/Graphics.h"
+
 #include <chrono>
 #include <iostream>
 
@@ -40,7 +42,7 @@ MainGame*   mainGame;
 Window*     window;
 
 //###---Program Entry---###///
-int main(int argc, char *argv[]) {
+bool main(int argc, char *argv[]) {
     // Init GLFW
     if (!glfwInit()) { std::cout << "Failed to intialise GLFW"; return false; }
 
@@ -49,14 +51,21 @@ int main(int argc, char *argv[]) {
     if (!window->CreateGLFWWindow(true, true)) { delete window; glfwTerminate(); return false; }
 
     // Init GL(AD) & Extensions
-    if (!gladLoadGLLoader(GLADloadproc(glfwGetProcAddress))) { std::cout << "Failed to initialize OpenGL context" << std::endl; return false; }
-    window->SetWindowFlags();
+	if (!gladLoadGLLoader(GLADloadproc(glfwGetProcAddress))) { std::cout << "Failed to initialize OpenGL context" << std::endl; return false; }
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
     
     // Print out the renderer information
-    window->PrintContextInfo();
+	const GLubyte* renderer = glGetString(GL_RENDERER);
+	const GLubyte* vendor = glGetString(GL_VENDOR);
+	const GLubyte* version = glGetString(GL_VERSION);
+	const GLubyte* extensions = glGetString(GL_EXTENSIONS);
+	printf("Renderer: %s - Vendor: %s\n", renderer, vendor);
+	printf("OpenGL Version: %s\n\n", version);
+	printf("Extensions: %s\n", extensions);
 
 	// Initialise MainGame
-	mainGame = new MainGame(window, SCREENWIDTH, SCREENHEIGHT);
+	mainGame = new MainGame(window, window->InputClass, SCREENWIDTH, SCREENHEIGHT);
 	
 	// Now go do the Main Loop of the program
     mainLoop();
@@ -73,6 +82,9 @@ void mainLoop() {
 		// Begin DeltaTime calculations
 		StartFrame(frameStart, frameEnd, deltaTime);
 			
+		// Check for input
+		glfwPollEvents();
+
         // Update the game
         updateLoop(deltaTime);
 

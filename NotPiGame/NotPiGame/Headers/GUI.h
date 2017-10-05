@@ -18,7 +18,7 @@ public:
 	Texture texture;
 	
 private:
-	GLuint m_vbo;	
+	unsigned int m_vbo;	
 };
 
 // Manages all the GUI stuff

@@ -1,18 +1,42 @@
 #include "../Headers/Input.h"
 
-Input::Input() {
-	this->Init();
+#define CheckKey(INPUT)\
+	if (keys[INPUT]) { inputs[INPUT] = true;}	\
+	else { inputs[INPUT] = false; }				\
+
+Input::Input() { /* Empty */ }
+
+Input::~Input() { /* Empty */ }
+
+void Input::HandleKeys(bool keys[1024], int scancode, int action, int mods) {
+
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+
+	CheckKey(GLFW_KEY_ESCAPE);
+
+
+	CheckKey(GLFW_KEY_ESCAPE);
+	CheckKey(GLFW_KEY_ESCAPE);
+
+
+	CheckKey(GLFW_KEY_ESCAPE);
+
+
 }
 
-Input::~Input() {
-}
-
-bool Input::Init() {
-    // Empty
-
-    return true;
-}
-
-bool Input::getKey(unsigned char WhatKey) {
-	return Keys[WhatKey] == TRUE; // Return true or false
+bool Input::GetKey(int key) {
+	if (inputs[key] == true) { return true; };
 }

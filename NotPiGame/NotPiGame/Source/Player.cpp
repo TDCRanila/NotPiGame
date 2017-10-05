@@ -211,72 +211,72 @@ void Player::passiveUpdate(float deltaTime) {
 }
 
 void Player::checkPlayerInput(float deltaTime) {
-	//// Input - Player Movement
-	//if (this->m_input->getKey(KEY_W)) {
-	//	this->PlayerMovementEnum = PLAYER_FORWARD;
-	//	doMovement(deltaTime);
-	//}
-	//
-	//if (this->m_input->getKey(KEY_S)) {
-	//	this->PlayerMovementEnum = PLAYER_BACKWARD;
-	//	doMovement(deltaTime);
-	//}
-	//
-	//if (this->m_input->getKey(KEY_A)) {
-	//	this->PlayerMovementEnum = PLAYER_LEFT;
-	//	doMovement(deltaTime);
-	//}
-	//
-	//if (this->m_input->getKey(KEY_D)) {
-	//	this->PlayerMovementEnum = PLAYER_RIGHT;
-	//	doMovement(deltaTime);
-	//}
-	//
-	//if (this->m_input->getKey(KEY_LEFTCTRL)) {
-	//	this->PlayerMovementEnum = PLAYER_CROUCH;
-	//	doMovement(deltaTime);
-	//} else { this->m_dimension.y = standDimension; this->m_accel = standAccel; } // To reset the dimension
-	//
-	//	// Input - Player Switch Weapons - 0 = RailGun Pistol
-	//if (this->m_input->getKey(KEY_1)) {
-	//	if (currentWeaponSelect != 0 && this->m_guns[currentWeaponSelect]->canSwitch == true) {
-	//		switchWeapon(0);
-	//	}
-	//}
-	//
-	//	// Input - Player Switch Weapons - 1 = Plasma Reapeter
-	//if (this->m_input->getKey(KEY_2)) {
-	//	if (currentWeaponSelect != 1 && this->m_guns[currentWeaponSelect]->canSwitch == true) {
-	//		switchWeapon(1);
-	//	}
-	//}
-	//
-	//	// Input - Player Switch Weapons - 2 = Hellshot Shotgun
-	//if (this->m_input->getKey(KEY_3)) {
-	//	if (currentWeaponSelect != 2 && this->m_guns[currentWeaponSelect]->canSwitch == true) {
-	//		switchWeapon(2);
-	//	}
-	//}
-	//
-	//// Input - Player Shooting Actions
-	//if ((this->m_input->TheMouse.LeftButton == true) || (this->m_input->getKey(KEY_SPACE))) {
+	// Input - Player Movement
+	if (this->m_input->GetKey(KEY_W)) {
+		this->PlayerMovementEnum = PLAYER_FORWARD;
+		doMovement(deltaTime);
+	}
+	
+	if (this->m_input->GetKey(KEY_S)) {
+		this->PlayerMovementEnum = PLAYER_BACKWARD;
+		doMovement(deltaTime);
+	}
+	
+	if (this->m_input->GetKey(KEY_A)) {
+		this->PlayerMovementEnum = PLAYER_LEFT;
+		doMovement(deltaTime);
+	}
+	
+	if (this->m_input->GetKey(KEY_D)) {
+		this->PlayerMovementEnum = PLAYER_RIGHT;
+		doMovement(deltaTime);
+	}
+	
+	if (this->m_input->GetKey(KEY_LEFT_CONTROL)) {
+		this->PlayerMovementEnum = PLAYER_CROUCH;
+		doMovement(deltaTime);
+	} else { this->m_dimension.y = standDimension; this->m_accel = standAccel; } // To reset the dimension
+	
+		// Input - Player Switch Weapons - 0 = RailGun Pistol
+	if (this->m_input->GetKey(KEY_1)) {
+		if (currentWeaponSelect != 0 && this->m_guns[currentWeaponSelect]->canSwitch == true) {
+			switchWeapon(0);
+		}
+	}
+	
+		// Input - Player Switch Weapons - 1 = Plasma Reapeter
+	if (this->m_input->GetKey(KEY_2)) {
+		if (currentWeaponSelect != 1 && this->m_guns[currentWeaponSelect]->canSwitch == true) {
+			switchWeapon(1);
+		}
+	}
+	
+		// Input - Player Switch Weapons - 2 = Hellshot Shotgun
+	if (this->m_input->GetKey(KEY_3)) {
+		if (currentWeaponSelect != 2 && this->m_guns[currentWeaponSelect]->canSwitch == true) {
+			switchWeapon(2);
+		}
+	}
+	
+	// Input - Player Shooting Actions
+//	if ((this->m_input->TheMouse.LeftButton == true) || (this->m_input->GetKey(KEY_SPACE))) {
 	//	weaponShoot(deltaTime);
 	//}
-	//
-	//// Input - Player Switch Gun Angle
-	//if (this->m_input->getKey(KEY_V)) {
-	//	if (pressedSwitch == false) {
-	//		if (gunRight == false) { gunRight = true; } 
-	//		else { gunRight = false; }
-	//		switchGunSide = true;
-	//		pressedSwitch = true;
-	//	}
-	//} if (!this->m_input->getKey(KEY_V)) { pressedSwitch = false; }
-	//	
-	//// Reset Button
-	//if (this->m_input->getKey(KEY_F12)) {
-	//	this->m_pos = glm::vec3(0.0f, 10.0f, 0.0f);
-	//}
+	
+	// Input - Player Switch Gun Angle
+	if (this->m_input->GetKey(KEY_V)) {
+		if (pressedSwitch == false) {
+			if (gunRight == false) { gunRight = true; } 
+			else { gunRight = false; }
+			switchGunSide = true;
+			pressedSwitch = true;
+		}
+	} if (!this->m_input->GetKey(KEY_V)) { pressedSwitch = false; }
+		
+	// Reset Button
+	if (this->m_input->GetKey(KEY_F12)) {
+		this->m_pos = glm::vec3(0.0f, 10.0f, 0.0f);
+	}
 	
 }
 
