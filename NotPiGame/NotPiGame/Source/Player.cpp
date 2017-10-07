@@ -76,14 +76,14 @@ void Player::createGuns(std::vector<ModelMatrix*>* gameModels, ResourceManager* 
 	pistol->storeGameModelVector(gameModels);
 	pistol->storeGunModels(RM->getOriginalModelMD2(0), RM->getOriginalModelMD2(1)); // Pistol - Gun And Flash Models
 	pistol->storeResourceManager(RM);
-	pistol->getModel(0)->setPosition(glm::vec3(-0.15f, 0.025f,  0.075f));
-	pistol->getModel(1)->setPosition(glm::vec3(-0.025f, 0.035f, 0.0175f));
+	pistol->getModel(0)->setPosition(glm::vec3(-0.15f, 0.0125f,  0.075f));
+	pistol->getModel(1)->setPosition(glm::vec3(-0.025f, 0.0175f, 0.0175f));
 	pistolPos			= pistol->getModel(0)->getPositon();
 	pistolFlashPos		= pistol->getModel(1)->getPositon();
 	pistol->getModel(0)->setRotationsDegrees(glm::vec3(0.0f, 90.f, 0.0f));
 	pistol->getModel(1)->setRotationsDegrees(glm::vec3(0.0f, 90.f, 0.0f));
-	pistol->getModel(0)->setScale(glm::vec3(0.0325f, 0.0325f, 0.0325f));
-	pistol->getModel(1)->setScale(glm::vec3(0.0325f, 0.0325f, 0.0325f));
+	pistol->getModel(0)->setScale(glm::vec3(0.0325f, 0.0325f, 0.0235f));
+	pistol->getModel(1)->setScale(glm::vec3(0.0325f, 0.0325f, 0.0235f));
 	pistol->getModel(0)->cancelView = true;
 	pistol->getModel(1)->cancelView = true;
 	pistol->m_weaponModels[0]->draw = true;
@@ -131,8 +131,8 @@ void Player::createGuns(std::vector<ModelMatrix*>* gameModels, ResourceManager* 
 	shotgunFlashPos = shotgun->getModel(1)->getPositon();
 	shotgun->getModel(0)->setRotationsDegrees(glm::vec3(0.0f, 90.f, 0.0f));
 	shotgun->getModel(1)->setRotationsDegrees(glm::vec3(0.0f, 90.f, 0.0f));
-	shotgun->getModel(0)->setScale(glm::vec3(0.0275f, 0.0325f, 0.0325f));
-	shotgun->getModel(1)->setScale(glm::vec3(0.0275f, 0.0325f, 0.0325f));
+	shotgun->getModel(0)->setScale(glm::vec3(0.0275f, 0.0325f, 0.0235f));
+	shotgun->getModel(1)->setScale(glm::vec3(0.0275f, 0.0325f, 0.0235f));
 	shotgun->getModel(0)->cancelView = true;
 	shotgun->getModel(1)->cancelView = true;
 	shotgun->m_weaponModels[0]->draw = false;
@@ -259,9 +259,9 @@ void Player::checkPlayerInput(float deltaTime) {
 	}
 	
 	// Input - Player Shooting Actions
-//	if ((this->m_input->TheMouse.LeftButton == true) || (this->m_input->GetKey(KEY_SPACE))) {
-	//	weaponShoot(deltaTime);
-	//}
+	if ((this->m_input->GetKey(MOUSE_BUTTON_1)) || (this->m_input->GetKey(KEY_SPACE))) {
+		weaponShoot(deltaTime);
+	}
 	
 	// Input - Player Switch Gun Angle
 	if (this->m_input->GetKey(KEY_V)) {
@@ -456,6 +456,7 @@ void Player::checkPickup() {
 			return;
 		}
 
+		currentPickupPointer = nullptr;
 		pickUpBool = false;
 	}
 }

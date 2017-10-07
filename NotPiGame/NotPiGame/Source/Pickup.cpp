@@ -28,16 +28,22 @@ void PickupManager::addPickup(Pickup* pickup) {
 }
 
 void PickupManager::updatePickups(float deltaTime) {
-	
+
 	for (int i = 0; i < pickups.size(); i++) {
 		// Update all the pickups
 		pickups[i]->update(deltaTime);
-		
+
+	}
+}
+
+void PickupManager::deletePickUps() {
+	for (int i = 0; i < pickups.size(); i++) {
 		// Check if there are pickups that need to be deleted
 		if (pickups[i]->pickUped) {
 			// When the enemy is dead the remove it
 			pickups[i]->getModel()->deleteModel = true;
 			delete pickups[i];
+			pickups[i] = nullptr;
 			pickups[i] = pickups.back();
 			pickups.pop_back();
 		}

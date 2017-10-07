@@ -30,6 +30,7 @@ public:
 	~PickupManager();
 	
 	void updatePickups(float deltaTime);
+	void deletePickUps();
 	void addPickup(Pickup* pickup);
 
 protected:

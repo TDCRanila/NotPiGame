@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../glm/include/common.hpp"
+
 #pragma region Define copy of GLFW Keys
 /* The unknown key */
 #define GLFW_KEY_UNKNOWN            -1
@@ -409,6 +411,11 @@ public:
 		
 	bool GetKey(int key);
 	void HandleKeys(bool keys[1024], int scancode, int action, int mods);
+	void HandleMouseButtons(bool keys[8], int button, int action, int mods);
+
+	glm::vec2 MousePos;
+	glm::vec2 MousePosOld;
+	glm::vec2 MouseOffset;
 
 private:
 	bool inputs[1024]{ false };

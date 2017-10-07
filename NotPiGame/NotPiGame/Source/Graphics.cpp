@@ -33,9 +33,10 @@ bool Window::CreateGLFWWindow(bool makeCurrent, bool enableVSync) {
     // Setting callbacks
     glfwSetErrorCallback(callbacks.error_callback);
     glfwSetKeyCallback(this->GLFWWindow, callbacks.key_callback);
+	glfwSetMouseButtonCallback(this->GLFWWindow, callbacks.mousebutton_callback);
     glfwSetCursorPosCallback(this->GLFWWindow, callbacks.mouse_callback);
     glfwSetScrollCallback(this->GLFWWindow, callbacks.scroll_callback);
-    //glfwSetInputMode(this->GLFWWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    glfwSetInputMode(this->GLFWWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     // Check if the window is valid
     if (!GLFWWindow) {
@@ -91,8 +92,29 @@ void WindowCallBacks::key_callback(GLFWwindow* window, int key, int scancode, in
 
 }
 
+void WindowCallBacks::mousebutton_callback(GLFWwindow* window, int button, int action, int mods) {
+	// Keys
+	if ((button >= 0) && (button < 8)) {
+		if (action == GLFW_PRESS) { m_keys[button] = true; }
+		else if (action == GLFW_RELEASE) { m_keys[button] = false; }
+	}
+
+	Input* inputClass = reinterpret_cast<Input*>(glfwGetWindowUserPointer(window));
+	inputClass->HandleMouseButtons(m_keys, button, action, mods);
+}
+
 void WindowCallBacks::mouse_callback(GLFWwindow* window, double xpos, double ypos) {
-    // Empty
+	Input* inputClass = reinterpret_cast<Input*>(glfwGetWindowUserPointer(window));
+
+	inputClass->MousePos.x = static_cast<float>(xpos);
+	inputClass->MousePos.y = static_cast<float>(ypos);
+
+	inputClass->MouseOffset.x = static_cast<float>(inputClass->MousePosOld.x - xpos);
+	inputClass->MouseOffset.y = static_cast<float>(inputClass->MousePosOld.y - ypos);
+
+	inputClass->MousePosOld.x = static_cast<float>(xpos);
+	inputClass->MousePosOld.y = static_cast<float>(ypos);
+
 }
 
 void WindowCallBacks::scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {

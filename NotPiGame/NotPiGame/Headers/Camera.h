@@ -26,21 +26,21 @@ const float PITCH = 0.0f;
 
 const float SPEED = 100.0f;
 const float SpeedSlowMultiplier = 0.25f;
-const float SENSITIVTY = 0.25f;
+const float SENSITIVTY = 0.125f;
 const float SCROLLSENSITIVITY = 1.25f;
 
 const float MINFOV = 1.0f;
 const float MAXFOV = 110.f;
-const float STARTFOV = 90.f;
+const float STARTFOV = 70.f;
 
 // An abstract camera class that processes input and calculates the corresponding Eular Angles, Vectors and Matrices for use in OpenGL
 class Camera
 {
 private:
-	int oldMouseInputX = 0;
-	int oldMouseInputY = 0;
-	int newMouseInputX = 0;
-	int newMouseInputY = 0;
+	float oldMouseInputX = 0;
+	float oldMouseInputY = 0;
+	float newMouseInputX = 0;
+	float newMouseInputY = 0;
 	
 	// Enum stored inside of the camera
 	Camera_Movement CameraMovementEnum;
@@ -84,42 +84,42 @@ public:
     }
 
 	void cameraUpdate(float deltaTime) {
-//		// Camera update - Keyboard
-//		if (this->m_input->GetKey(KEY_D)) {
-//			this->CameraMovementEnum = CAMERA_RIGHT;
-//			this->ProcessKeyboard(deltaTime);
-//		}
-//		if (this->m_input->GetKey(KEY_A)) {
-//			this->CameraMovementEnum = CAMERA_LEFT;
-//			this->ProcessKeyboard(deltaTime);
-//		}
-//		if (this->m_input->GetKey(KEY_S)) {
-//			this->CameraMovementEnum = CAMERA_BACKWARD;
-//			this->ProcessKeyboard(deltaTime);
-//		}
-//		if (this->m_input->GetKey(KEY_W)) {
-//			this->CameraMovementEnum = CAMERA_FORWARD;
-//			this->ProcessKeyboard(deltaTime);
-//		}
-//		if (this->m_input->GetKey(KEY_LEFTSHIFT)) {
-//			this->CameraMovementEnum = CAMERA_UP;
-//			this->ProcessKeyboard(deltaTime);
-//		}
-//		if (this->m_input->GetKey(KEY_LEFTCTRL)) {
-//			this->CameraMovementEnum = CAMERA_DOWN;
-//			this->ProcessKeyboard(deltaTime);
-//		}
-		
-		//// Camera Update - Mouse - With mouse Gliding fix		
-		//newMouseInputX =  -m_input->TheMouse.PositionX;
-		//newMouseInputY =  -m_input->TheMouse.PositionY;
-
-		//if ((newMouseInputX != oldMouseInputX) || (newMouseInputY != oldMouseInputY)) {
-		//	this->ProcessMouseMovement(newMouseInputX, newMouseInputY, true);
+		//// Camera update - Keyboard
+		//if (this->m_input->GetKey(KEY_D)) {
+		//	this->CameraMovementEnum = CAMERA_RIGHT;
+		//	this->ProcessKeyboard(deltaTime);
 		//}
+		//if (this->m_input->GetKey(KEY_A)) {
+		//	this->CameraMovementEnum = CAMERA_LEFT;
+		//	this->ProcessKeyboard(deltaTime);
+		//}
+		//if (this->m_input->GetKey(KEY_S)) {
+		//	this->CameraMovementEnum = CAMERA_BACKWARD;
+		//	this->ProcessKeyboard(deltaTime);
+		//}
+		//if (this->m_input->GetKey(KEY_W)) {
+		//	this->CameraMovementEnum = CAMERA_FORWARD;
+		//	this->ProcessKeyboard(deltaTime);
+		//}
+		//if (this->m_input->GetKey(KEY_LEFT_SHIFT)) {
+		//	this->CameraMovementEnum = CAMERA_UP;
+		//	this->ProcessKeyboard(deltaTime);
+		//}
+		//if (this->m_input->GetKey(KEY_LEFT_CONTROL)) {
+		//	this->CameraMovementEnum = CAMERA_DOWN;
+		//	this->ProcessKeyboard(deltaTime);
+		//}
+		
+		// Camera Update - Mouse - With mouse Gliding fix		
+		newMouseInputX =	m_input->MouseOffset.x;
+		newMouseInputY =	m_input->MouseOffset.y;
+
+		if ((newMouseInputX != oldMouseInputX) || (newMouseInputY != oldMouseInputY)) {
+			this->ProcessMouseMovement(newMouseInputX, newMouseInputY, true);
+		}
 	
-		//oldMouseInputX = newMouseInputX;
-		//oldMouseInputY = newMouseInputY;
+		oldMouseInputX =	newMouseInputX;
+		oldMouseInputY =	newMouseInputY;
 	}
 	
 	void storeInput(Input* input) {

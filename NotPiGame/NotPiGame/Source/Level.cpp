@@ -56,28 +56,32 @@ void Level::CreateLevel() {
 //////////////////////////////////////////////
 void Level::UpdateLevel(float deltaTime) {
 	// If this button is pressed, exit the level
-	//if (inputPointer->getKey(KEY_F4)) { this->setExitBool(true); return; }
-	//
-	//// If this button is pressed, exit the level
-	//if (inputPointer->getKey(KEY_F5)) { this->setResetBool(true); return; }
-	//
-	//// If this button is pressed, pause the level
-	//if (inputPointer->getKey(KEY_P)) { this->setPauseBool(true); }
+	if (inputPointer->GetKey(KEY_F4)) { this->setExitBool(true); return; }
+	
+	// If this button is pressed, reset the level
+	if (inputPointer->GetKey(KEY_F5)) { this->setResetBool(true); return; }
+	
+	// If this button is pressed, pause the level
+	if (inputPointer->GetKey(KEY_P)) { this->setPauseBool(true); }
 	
 		// Update the resource manager - to remove models that are no longer needed
 	this->resourceManager->updateResources();
 	
-	// Update the camera
-	this->cameraPointer->cameraUpdate(deltaTime);
-	
-	// Update the player
-	this->player->update(deltaTime);
-	
 	// Update the enemies
 	enemyManager->updateManager(deltaTime);
-	
+
+	// Update the camera
+	this->cameraPointer->cameraUpdate(deltaTime);
+
 	// Update all the pickups
 	pickupManager->updatePickups(deltaTime);
+
+	// Update the player
+	this->player->update(deltaTime);
+
+	// Update all the pickups
+	pickupManager->deletePickUps();
+
 }
 
 //////////////////////////////////////////////
