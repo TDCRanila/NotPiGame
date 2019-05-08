@@ -2,9 +2,9 @@
 
 |Not|PiGame was a **Y1 student solo project** and was developed for the **Raspberry Pi 3B**.
 
-My game was more of a techdemo showing of the C++ custom engine/framework that I had made totaly from scratch. From engine structure, input, asset loading to OpenGL rendering, and making it all work on the Raspberry Pi. It taught me basic engine structure and it improved my C++ skills. Some of the code and decisions made are definitely not the best, but they taught me about those mistakes.
+My game was more of a tech-demo showing of the C++ custom engine/framework that I had made totally from scratch. From engine structure, input, asset loading to OpenGL rendering, and making it all work on the Raspberry Pi. It taught me basic engine structure and it improved my C++ skills. Some of the code and decisions made are definitely not the best, but they taught me about those mistakes.
 
-This repository contains modified code of the original Raspberry Pi Tech Demo, so that it would run on Windows Platforms.
+This repository contains modified code of the original Raspberry Pi tech-demo so that it would run on Windows Platforms.
 
 ## **Licence**
 
