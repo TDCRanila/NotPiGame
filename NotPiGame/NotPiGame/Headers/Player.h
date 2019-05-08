@@ -77,7 +77,7 @@ private:
 	// Shotgun Stats
 	std::string shotgunName = "Railgun shotgun";
 	int shotgunPelletAmount	= 15;
-	int shotgunDamage		= 1;
+	int shotgunDamage		= 2;
 	float shotgunFireRate	= 0.85f;
 	int shotgunDefaultAmmo	= 18;
 	float shotgunAnimSpeed	= 14.5f;

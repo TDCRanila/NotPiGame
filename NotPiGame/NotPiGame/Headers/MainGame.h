@@ -76,9 +76,9 @@ private:
 		
 	// Camera + Default Camera Settings
 	Camera* m_mainCamera	= nullptr;
-	float m_aspect		= (16.0f / 9.0f);
-    float m_nearZ			= 0.065f;
-    float m_farZ			= 300.f;
+	float m_aspect		    = (16.0f / 9.0f);
+    float m_nearZ			= 0.150f;
+    float m_farZ			= 1000.f;
 					
 	// Draw Objects Vector Pointers - All The Models
 	std::vector<GUI*>* m_GUISystems							= nullptr;

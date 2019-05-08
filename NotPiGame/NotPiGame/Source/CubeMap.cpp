@@ -152,7 +152,7 @@ bool CubeMap::Draw(glm::mat4 cameraView, glm::mat4 cameraProjection) {
 		glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 		
 		// Re-Enable the depth mask for other renders 
-		glDepthFunc(GL_LESS);
+		glDepthFunc(GL_LEQUAL);
 		//glCullFace(GL_BACK);
 	
 		#ifdef ACTIVATE_ERROR_CHECKING

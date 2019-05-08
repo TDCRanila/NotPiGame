@@ -81,9 +81,10 @@ void MainGame::Draw() {
 	glm::mat4 projectionMatrix	= m_mainCamera->GetPerspectiveProjectionMatrix(m_aspect, m_nearZ, m_farZ);
 	// Draw all the GUI stuff
 	for (int j = 0; j < m_GUISystems->size(); j++) {
-		for (int i = 0; i < m_GUISystems->size(); i++) {	
-			(*m_GUISystems)[j]->components[i].Update(m_deltaTime);
-			(*m_GUISystems)[j]->components[i].Draw(viewMatrix, projectionMatrix);
+        GUI* guiSystem = (*m_GUISystems)[j];
+		for (int i = 0; i < guiSystem->components.size(); i++) {
+            guiSystem->components[i].Update(m_deltaTime);
+            guiSystem->components[i].Draw(viewMatrix, projectionMatrix);
 	} }
 	// Draw all the Game objects
 	for (int i = 0; i < m_gameObjectsModels->size(); i++) {

@@ -82,7 +82,7 @@ bool GUIComponent::Draw(glm::mat4 cameraView, glm::mat4 cameraProjection) {
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindTexture(GL_TEXTURE_2D, 0);
 		
-		glDepthFunc(GL_LESS);
+		glDepthFunc(GL_LEQUAL);
 	
 #ifdef ACTIVATE_ERROR_CHECKING
 		if (glGetError() != GL_NO_ERROR) { printf("Failed to draw - GUI Component\n"); }

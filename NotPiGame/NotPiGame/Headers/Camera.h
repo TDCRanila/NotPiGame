@@ -21,17 +21,17 @@ enum Camera_Movement {
 };
 
 // Default User Camera values - "Camera options"
-const float YAW = 0.0f;
-const float PITCH = 0.0f;
+const float YAW     = 0.0f;
+const float PITCH   = 0.0f;
 
-const float SPEED = 100.0f;
+const float SPEED               = 100.0f;
 const float SpeedSlowMultiplier = 0.25f;
-const float SENSITIVTY = 0.125f;
-const float SCROLLSENSITIVITY = 1.25f;
+const float SENSITIVTY          = 0.15f;
+const float SCROLLSENSITIVITY   = 1.25f;
 
-const float MINFOV = 1.0f;
-const float MAXFOV = 110.f;
-const float STARTFOV = 70.f;
+const float MINFOV      = 1.0f;
+const float MAXFOV      = 110.f;
+const float STARTFOV    = 65.f;
 
 // An abstract camera class that processes input and calculates the corresponding Eular Angles, Vectors and Matrices for use in OpenGL
 class Camera

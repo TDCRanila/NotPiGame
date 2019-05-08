@@ -7,9 +7,9 @@
 #include <chrono>
 #include <iostream>
 
-const int SCREENWIDTH	= 1280;
-const int SCREENHEIGHT	= 720;
-const std::string GAMENAME = "~Not~PiGame";
+const int SCREENWIDTH	= 1600;
+const int SCREENHEIGHT	= 900;
+const std::string GAMENAME = "|Not|PiGame";
 
 // Prototypes
 void mainLoop();
@@ -54,6 +54,7 @@ bool main(int argc, char *argv[]) {
 	if (!gladLoadGLLoader(GLADloadproc(glfwGetProcAddress))) { std::cout << "Failed to initialize OpenGL context" << std::endl; return false; }
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
+    glCullFace(GL_BACK);
     
     // Print out the renderer information
 	const GLubyte* renderer = glGetString(GL_RENDERER);
