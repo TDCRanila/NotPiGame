@@ -1,4 +1,6 @@
-# NotPiGame
+# |Not|PiGame
+
+###### *A project of mine once made for the Raspberry Pi, but no for Windows.*
 
 ![](Resources/notpigame-banner.png)
 
