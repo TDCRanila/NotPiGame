@@ -1,6 +1,6 @@
 # |Not|PiGame
 
-###### *A project of mine once made for the Raspberry Pi, but no for Windows.*
+###### *A project of mine once made for the Raspberry Pi, but now for Windows.*
 
 ![](Resources/notpigame-banner.png)
 
